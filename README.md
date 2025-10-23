@@ -47,7 +47,6 @@ The goal of this project is to analyze the **White Wine Quality dataset** and bu
 ---
 
 ## 📈 Model Results
-- **Accuracy:** ~58%  
 - The model performs best for mid-range wine qualities (5 and 6).  
 - It struggles with extreme values due to **class imbalance**.  
 
