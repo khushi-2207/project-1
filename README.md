@@ -1,76 +1,90 @@
 # 🍷 Wine Quality Prediction using Support Vector Machine (SVM)
 
-This project predicts the **quality of white wine** based on its physicochemical properties using a **Support Vector Machine (SVM)** classifier.
+This project predicts the **quality of white wine** based on its physicochemical properties using **Machine Learning (SVM)**.  
+It demonstrates end-to-end data analysis, model building, and evaluation — progressing from **multi-class** to **binary classification** for improved accuracy.
 
 ---
 
 ## 🧠 Objective
-The goal of this project is to analyze the **White Wine Quality dataset** and build a machine learning model that can predict wine quality (on a scale of 0–10) from its chemical composition.
+To develop a predictive model that determines whether a wine is of **good** or **bad** quality based on its chemical composition.
 
 ---
 
 ## 📊 Dataset Information
 **Source:** [UCI Machine Learning Repository – Wine Quality Dataset](https://archive.ics.uci.edu/ml/datasets/Wine+Quality)  
-**Number of Records:** 4898  
-**Features:**
-- Fixed Acidity  
-- Volatile Acidity  
-- Citric Acid  
-- Residual Sugar  
-- Chlorides  
-- Free Sulfur Dioxide  
-- Total Sulfur Dioxide  
-- Density  
-- pH  
-- Sulphates  
-- Alcohol  
-- Quality (Target Variable)
+**Records:** 4898  
+**Features:** 11 independent chemical attributes  
+**Target Variable:** Wine quality score (0–10)
 
 ---
 
 ## 🧩 Tools & Libraries Used
 - **Python**
-- **Pandas**, **NumPy** – Data manipulation
+- **Pandas**, **NumPy** – Data preprocessing
 - **Matplotlib**, **Seaborn** – Data visualization
-- **Scikit-learn** – Model training & evaluation (SVM, preprocessing)
-- **Jupyter Notebook** – Implementation environment
+- **Scikit-learn** – Model training, scaling, and evaluation
+- **Jupyter Notebook** – Code and results presentation
 
 ---
 
 ## ⚙️ Project Workflow
-1. **Data Loading:** Imported dataset from the YBI Foundation GitHub repository  
-2. **Data Exploration:** Examined structure, summary statistics, and class distribution  
-3. **Data Preprocessing:** Standardized feature values using `StandardScaler`  
-4. **Model Training:** Built an SVM classifier to predict wine quality  
-5. **Model Evaluation:** Evaluated accuracy, confusion matrix, and classification report  
+
+### **1. Data Import and Exploration**
+- Loaded dataset using Pandas  
+- Analyzed summary statistics and feature distributions  
+- Visualized wine quality counts and feature correlations  
+
+### **2. Data Preprocessing**
+- Selected relevant independent variables  
+- Scaled features using **StandardScaler** for uniformity  
+
+### **3. Model 1 – Multi-Class SVM**
+- Target variable: original 7-class labels (3–9)
+- Accuracy: **68%**
+- Limitations: lower precision for minority classes due to imbalance
+
+### **4. Model 2 – Binary Classification SVM**
+- Converted target variable into two classes:  
+  - `0` → Poor quality (3, 4, 5)  
+  - `1` → Good quality (6, 7, 8, 9)
+- Accuracy improved to **88%**
+- Model performs well for “good quality” wines (recall = 0.87)
+
+### **5. Future Prediction Example**
+- Randomly selected a new wine sample from dataset  
+- Standardized features and predicted its quality class (`1` → good wine)
 
 ---
 
-## 📈 Model Results
-- The model performs best for mid-range wine qualities (5 and 6).  
-- It struggles with extreme values due to **class imbalance**.  
+## 📈 Results Summary
 
-### 🔍 Key Insights
-- Wines with **higher alcohol** and **lower density** generally receive higher quality ratings.  
-- SVM can serve as a good baseline model, but further tuning is required for optimal accuracy.
+| Model Type | Accuracy | Precision (Class 1) | Recall (Class 1) |
+|-------------|-----------|---------------------|------------------|
+| Multi-Class | 68% | 0.63 | 0.25 |
+| Binary Class | **88%** | **0.81** | **0.87** |
+
+✅ **Conclusion:**  
+Binarizing the quality variable significantly improved accuracy and interpretability. The SVM model now classifies wine quality effectively for real-world use.
 
 ---
 
-## 🚀 Future Improvements
-- Perform **hyperparameter tuning** using `GridSearchCV`  
-- Compare with **Random Forest** and **XGBoost** classifiers  
-- Handle **class imbalance** using SMOTE or oversampling techniques  
+## 🔮 Future Improvements
+- Hyperparameter tuning using **GridSearchCV**  
+- Implement **Random Forest** and **XGBoost** for comparison  
+- Apply **SMOTE** to balance minority classes  
 - Build a simple **Power BI / Streamlit dashboard** for visualization
 
 ---
 
-## 🏁 Conclusion
-This project demonstrates a complete ML workflow — from data preprocessing and visualization to model training and evaluation — showcasing proficiency in **Python, ML, and data analysis**.
+## 🏁 Key Learnings
+- The importance of **feature scaling** for SVM performance  
+- Handling **imbalanced datasets** improves predictive accuracy  
+- Visualizations help uncover key correlations like *alcohol vs quality*
 
 ---
 
 ## 💻 Author
 **Khushi Arora**  
 📍 Data Analyst & ML Enthusiast  
-🔗 [GitHub Profile](https://github.com/khushi-2207)  
-🔗 [LinkedIn Profile](https://linkedin.com/in/khushi-0710s)
+🔗 [GitHub](https://github.com/khushi-2207)  
+🔗 [LinkedIn](https://linkedin.com/in/khushi-0710s)
